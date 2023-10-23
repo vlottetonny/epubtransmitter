@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import {NavBar} from "@/components/organisms/NavBar.organism";
 import {Footer} from "@/components/organisms/Footer.organism";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,9 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <NavBar />
-      {children}
-      <Footer />
+    <Head>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;200&display=swap" rel="stylesheet" />
+    </Head>
+    {children}
     </html>
   )
 }

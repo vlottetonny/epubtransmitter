@@ -1,17 +1,17 @@
 "use client";
-import Image from 'next/image'
+
 import styles from './page.module.css'
 import {useEffect, useState} from "react";
 import {Button} from "@/components/atoms/Button.atom";
+import VerificationCodeComponent from "@/components/molecules/VerificationCodeInput";
 
 export default function Home() {
-    const [isEreader, setIsEreader] = useState<boolean>(true); // Hi me, when done please set this to false
+    const [isEreader, setIsEreader] = useState<boolean>(false); // Hi me, when done please set this to false
 
     useEffect(() => {
         console.log('Navigator object:', navigator); // Debugging line
         const ua = navigator ? navigator.userAgent : 'Unavailable';
         console.log('User Agent:', ua); // Debugging line
-        // ... rest of your code
     }, []);
 
     useEffect(() => {
@@ -22,22 +22,15 @@ export default function Home() {
     }, []);
     return (
         <main className={styles.main}>
-            <div className={styles.headmast}>
-                {isEreader ? <div className={styles.headmast}>
-                    <div className={styles.headmast_container}>
-                        <h1 className={styles.title}>
-                            E-Reader
-                        </h1>
-                        request a code from api
-                    </div>
-                </div> : <div className={styles.headmast}>
-                    <div className={styles.headmast_container}>
-                        <h1 className={styles.title}>
-                            Not E-Reader
-                        </h1>
+            {isEreader ? <h1 className={styles.title}>
+                    'E-Reader'
+                </h1> :
+                <div className={styles.not_backgroundImage}>
+                    <div className={styles.not_uiContainer}>
+                        <text className={styles.not_title}>test</text>
+                        <VerificationCodeComponent codeLength={6}/>
                     </div>
                 </div>}
-            </div>
         </main>
     )
 }
