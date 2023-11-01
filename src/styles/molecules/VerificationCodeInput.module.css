@@ -1,0 +1,22 @@
+.verification-code-container {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.verification-input {
+    width: 30px;
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+.verification-input:focus {
+    border-color: #66afe9;
+    outline: none;
+}
