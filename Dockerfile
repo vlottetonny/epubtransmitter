@@ -1,25 +1,14 @@
-# Stage 1: Build the application
-FROM node:18 AS builder
+FROM node:18
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package*.json /app/
 
 RUN npm install
 
-COPY . .
+COPY . /app
 
 RUN npm run build
-
-# Stage 2: Run the application
-FROM node:16
-
-WORKDIR /app
-
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
 
 EXPOSE 3000
 
