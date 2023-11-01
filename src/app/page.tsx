@@ -1,18 +1,14 @@
 "use client";
-
-import styles from './page.module.css'
-import {useEffect, useState} from "react";
-import {Button} from "@/components/atoms/Button.atom";
-import VerificationCodeComponent from "@/components/molecules/VerificationCodeInput";
+import React, { useEffect, useState } from "react";
+import styles from './page.module.css';
+import InputCode from "@/components/molecules/ConnectionCodeInput";
+import SwitchModeButton from "@/components/atoms/SwitchModeButton";
+import ConnectionCode from "@/components/molecules/ConnectionCode";
 
 export default function Home() {
-    const [isEreader, setIsEreader] = useState<boolean>(false); // Hi me, when done please set this to false
-
-    useEffect(() => {
-        console.log('Navigator object:', navigator); // Debugging line
-        const ua = navigator ? navigator.userAgent : 'Unavailable';
-        console.log('User Agent:', ua); // Debugging line
-    }, []);
+    const [isEreader, setIsEreader] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [connected, setConnected] = useState(false);
 
     useEffect(() => {
         const userAgent = navigator.userAgent;
@@ -20,17 +16,41 @@ export default function Home() {
             setIsEreader(true);
         }
     }, []);
+
+    const handleToggle = () => {
+        setIsEreader(!isEreader);
+    };
+
     return (
         <main className={styles.main}>
-            {isEreader ? <h1 className={styles.title}>
-                    'E-Reader'
-                </h1> :
+            <SwitchModeButton onToggle={handleToggle}/>
+            {isEreader ? (
+                <div className={styles.uiContainer}>
+                    <h1 className={styles.title}>E-Reader</h1>
+                    <ConnectionCode/>
+                </div>
+            ) : (
                 <div className={styles.not_backgroundImage}>
                     <div className={styles.not_uiContainer}>
-                        <text className={styles.not_title}>test</text>
-                        <VerificationCodeComponent codeLength={6}/>
+                        <div className={styles.not_connectionContainer}>
+                            <InputCode
+                                length={6}
+                                label="Connection code"
+                                loading={loading}
+                                onComplete={(code) => {
+                                    setLoading(true);
+                                    setTimeout(() => setLoading(false), 10000);
+                                    setConnected(true);
+                                }}
+                            />
+                            <text className={styles.not_connectionExplanationText}>
+                                {connected ? ("You are now connected to your e-reader. Now upload an epub file in the box below to send it to your e-reader.") :
+                                    ("Open this website on your e-reader and enter the code that is being displayed in the input fields above.")}
+                            </text>
+                        </div>
                     </div>
-                </div>}
+                </div>
+            )}
         </main>
-    )
+    );
 }

@@ -1,22 +1,60 @@
-.verification-code-container {
+/* InputCode.css */
+.codeInput {
     display: flex;
-    justify-content: space-between;
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
-.verification-input {
-    width: 30px;
-    padding: 10px;
-    font-size: 18px;
+.codeLabel {
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+.codeInputs {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.codeInputs input {
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
     text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    height: 50px;
+    width: 30px;
+    border-radius: 8px;
+    margin: 2px;
+    border: 2px solid #4f5b66;
+    font-size: 30px;
+}
+
+.codeInputsSuccess input {
+    border: none;
+    background-image: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    text-align: center;
+    height: 50px;
+    width: 30px;
+    border-radius: 8px;
+    margin: 2px;
+    border: 2px solid #4f5b66;
+    font-size: 30px;
+    background-color: rgba(111 139 90);
+    color: white;
+}
+
+.codeInputs input:focus {
     outline: none;
 }
 
-.verification-input:focus {
-    border-color: #66afe9;
-    outline: none;
+.codeInputs input:nth-child(3) {
+    margin-right: 24px;
 }

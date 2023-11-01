@@ -1,9 +1,19 @@
+/* styles.css */
 .main {
   display: flex;
-    flex-direction: column;
-    height: 100vh;
+  flex-direction: column;
+  height: 100vh;
 }
 
+/* e-reader */
+.uiContainer{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+  padding: 20px;
+}
+
+/* not e-reader */
 .not_backgroundImage {
   background-image: url('../assets/images/EpubTransmitterBackdrop.png');
   background-size: cover;
@@ -13,23 +23,30 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .not_uiContainer {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 30px;
-  width: 50%;
-  height: 50%;
+  width: 1000px;
+  height: 750px;
   padding: 20px;
-  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin: 20px;
+}
+
+.not_connectionContainer {
+  padding-bottom: 20px;
 }
 
 .not_title {
   font-family: 'Roboto', sans-serif;
   font-size: 2.5rem;
   margin-bottom: 20px;
+}
+
+.not_connectionExplanationText {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
 }
