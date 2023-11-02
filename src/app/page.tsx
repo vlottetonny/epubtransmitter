@@ -26,7 +26,7 @@ export default function Home() {
             <SwitchModeButton onToggle={handleToggle}/>
             {isEreader ? (
                 <div className={styles.uiContainer}>
-                    <h1 className={styles.title}>E-Reader</h1>
+                    <h1 className={styles.title}>E-Reader </h1>
                     <ConnectionCode/>
                 </div>
             ) : (
