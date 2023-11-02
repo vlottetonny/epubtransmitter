@@ -43,10 +43,10 @@ export default function Home() {
                                     setConnected(true);
                                 }}
                             />
-                            <text className={styles.not_connectionExplanationText}>
+                            <p className={styles.not_connectionExplanationText}>
                                 {connected ? ("You are now connected to your e-reader. Now upload an epub file in the box below to send it to your e-reader.") :
                                     ("Open this website on your e-reader and enter the code that is being displayed in the input fields above.")}
-                            </text>
+                            </p>
                         </div>
                     </div>
                 </div>
