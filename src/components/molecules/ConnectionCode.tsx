@@ -7,7 +7,7 @@ const ConnectionCode: React.FC = () => {
     useEffect(() => {
         const fetchCode = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/code/get');
+                const response = await axios.get('http://localhost:8000/code/get');
                 setCode(response.data);
             } catch (error) {
                 console.error('Error fetching the code:', error);
