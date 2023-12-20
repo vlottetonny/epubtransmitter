@@ -1,34 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# epubtransmitter
 
-## Getting Started
+Dit project is een webapplicatie die het mogelijk maakt om epub-bestanden te verzenden. Hier is een korte handleiding over hoe je het project kunt starten en bouwen:
 
-First, run the development server:
+## Het project bouwen
+
+Om het project te bouwen, gebruik je eerst `npm i` om de `Node modules` te installeren. Daarna gebruik je het `build` script dat gedefinieerd is in het `package.json` bestand. Dit script bouwt de Next.js applicatie voor productie. Je kunt dit script uitvoeren met het volgende commando in je terminal:
+
+```bash
+npm i
+npm run build
+```
+
+## Het project starten
+
+Om het project te starten, gebruik je het `start` script dat gedefinieerd is in het `package.json` bestand. Dit script start de Next.js server. Je kunt dit script uitvoeren met het volgende commando in je terminal:
+
+```bash
+npm start
+```
+
+## Het project in ontwikkelmodus draaien
+
+Als je aan het project werkt en wilt dat het automatisch opnieuw start wanneer je wijzigingen aanbrengt in je code, kun je het `dev` script gebruiken. Dit script start de Next.js server in ontwikkelmodus. Je kunt dit script uitvoeren met het volgende commando in je terminal:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Testen
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Dit project maakt gebruik van Jest voor het uitvoeren van tests. Je kunt de tests uitvoeren met het volgende commando in je terminal:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm run test
+```
 
-## Learn More
+Zorg ervoor dat je deze commando's uitvoert in de hoofdmap van het project, waar het `package.json` bestand zich bevindt.
 
-To learn more about Next.js, take a look at the following resources:
+## Bijdragen
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Als je wilt bijdragen aan dit project, zorg er dan voor dat je de ESLint regels volgt die zijn gedefinieerd in dit project. Je kunt de linter uitvoeren met het volgende commando in je terminal:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run lint
+```
 
-## Deploy on Vercel
+## Backend Vereisten
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Dit project is een frontend webapplicatie die nauw samenwerkt met een backend service, genaamd `epubtransmitterbackend`. Om dit project volledig te kunnen gebruiken, moet je ook de backend service draaien en correct configureren.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+De backend service is verantwoordelijk voor het verwerken van de epub-bestanden en het beheren van de codes die nodig zijn voor de communicatie tussen de frontend en de backend. Zonder de backend service zal deze frontend applicatie niet naar behoren functioneren.
+
+### Backend Documentatie
+
+Het is belangrijk om de documentatie van de backend service door te nemen voordat je dit project gebruikt. De documentatie bevat gedetailleerde instructies over hoe je de backend service kunt starten en configureren, evenals informatie over de verschillende endpoints die de service biedt.
+
+Je kunt de documentatie van de backend service vinden in het `README.md` bestand van de `epubtransmitterbackend` repository. Zorg ervoor dat je de instructies in de documentatie zorgvuldig volgt om ervoor te zorgen dat de backend service correct is geconfigureerd en functioneert zoals verwacht.
+
+Door de backend documentatie door te nemen, krijg je een beter begrip van hoe de backend service werkt en hoe het samenwerkt met deze frontend applicatie. Dit zal je helpen om eventuele problemen die je tegenkomt beter te begrijpen en op te lossen.
