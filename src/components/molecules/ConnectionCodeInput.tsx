@@ -26,6 +26,7 @@ const InputCode: React.FC<InputCodeProps> = ({ length, label, loading, onComplet
             inputs.current[slot + 1]?.focus();
         }
         if (newCode.every(char => char !== "")) {
+            console.log('Code complete:', newCode.join(""));
             handleSubmit(newCode.join(""));
         }
     };
@@ -42,7 +43,7 @@ const InputCode: React.FC<InputCodeProps> = ({ length, label, loading, onComplet
     const handleSubmit = async (code: string) => {
         try {
             console.log('Sending code:', code);
-            const response = await axios.post('http://localhost:8080/code/connect', { code });
+            const response = await axios.post('http://localhost:8000/code/connect', { code });
             if (response.status === 200) {
                 console.log('Code verified successfully');
                 onComplete(code); // Send the code to the parent component
